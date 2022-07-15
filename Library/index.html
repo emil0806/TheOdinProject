@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="library.js" defer></script>
+</head>
+<body>
+    <div class="header"> 
+        <button class="newBook" onclick="openForm()">Add new book</button>
+        <div class="formContainer" id="formContainer">
+            <form id="form" class="form" action="javascript:getBook()">
+                <label for="newTitle">Title: </label>
+                <input id="newTitle" type="text" name="newTitle" required/>
+
+                <label for="newAuthor">Author: </label>
+                <input id="newAuthor" type="text" name="newAuthor" required/>
+                
+                <label for="newPages">Pages: </label>
+                <input id="newPages" type="text" name="newPages" required/>
+                
+                <label for="newRead">Have you already read the book? </label>
+                <input id="newRead" type="checkbox" name="newRead" />
+
+                <button type="submit" class="submit">Submit</button>
+                <button type="button" class="cancel submit" onclick="closeForm()">Close</button>
+            </form>
+        </div>    
+    </div>
+    <div class="container" id="container">
+
+    </div>
+</body>
+</html>
