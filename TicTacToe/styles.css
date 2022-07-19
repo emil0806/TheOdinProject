@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 50vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.boardCell {
+    width: 100%;
+    height: 100%;
+    border: solid black 1px;
+    cursor: pointer;
+    font-size: 100px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
