@@ -1,14 +1,19 @@
 body {
-    display: flex;
+    display: grid;
+    grid-template-rows: 2fr 0.5fr;
     justify-content: center;
+    align-items: center;
+
 }
 
 .container {
-    width: 50vw;
-    height: 50vh;
+    width: 60vw;
+    height: 60vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    margin: 20px 0px;
+    padding: 0;
 }
 
 .boardCell {
@@ -21,5 +26,39 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
+.divBtn {
+    margin: 0;
+    padding: 0;
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 50px;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+    "congrats"
+    "button";
+}
+
+.button {
+    grid-area: button;
+    padding: 10px 15px;
+    background-color: red;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    justify-self: center;
+}
+
+.congrats {
+    grid-area: congrats;
+    justify-self: center;
+    font-size: 50px;
+    padding: 0;
+}
