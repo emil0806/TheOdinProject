@@ -10,7 +10,7 @@ const authorInput = document.getElementById('newAuthor');
 const pagesInput = document.getElementById('newPages');
 const readInput = document.getElementById('newRead');
 
-/* Using class to create object storing book */
+/* Using class to create object to store book */
 class Book {
     constructor(title, author, pages, read) {
         this.title = title
