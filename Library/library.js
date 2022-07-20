@@ -10,15 +10,15 @@ const authorInput = document.getElementById('newAuthor');
 const pagesInput = document.getElementById('newPages');
 const readInput = document.getElementById('newRead');
 
-/* Function that creates object with a book */
-
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+/* Using class to create object storing book */
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
 }
-
 /* Adding new book to library */
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read)
