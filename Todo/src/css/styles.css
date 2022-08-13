@@ -1,0 +1,450 @@
+/* Body styling */
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: #a59d9d;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: Helvetica;
+}
+
+#headingContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color: #dedede;
+    background-color: #404040;
+    width: 80%;
+    padding: 1% 2% 1% 2%;
+    border-radius: 10px;
+}
+
+#heading {
+    font-size: 4rem;
+    align-self: center;
+    margin-bottom: 1%;
+}
+
+#underHeading {
+    font-size: 1.5rem;
+    align-self: center;
+
+}
+
+#projectAndTodoContainer {
+    display: grid;
+    grid-gap: 1%;
+    width: 80%;
+    padding: 2%;
+    margin-bottom: 2%;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    background: #404040;
+    border-radius: 10px;
+    color: #dedede;
+    font-family: "Raleway", sans-serif;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 3%;
+}
+
+#projectCreateBtnContainer {
+    text-align: center;
+    padding-bottom: 5%;
+    border-bottom: 3px #a59d9d solid;
+    height: 6vh;
+}
+
+#projectsListContainer {
+    margin-top: 5%;
+}
+
+#projectCreateBtn {
+    font-size: 1.5rem;
+    background-color: #a59d9d;
+    color: black;
+    border-radius: 8px;
+    padding: 2% 3% 2% 3%;
+    cursor: pointer;
+    border: 1px white solid;
+}
+
+#createProjectPopup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#projectTitleText {
+    margin-right: 2%;
+}
+
+#projectTitleInput {
+    background: #dedede;
+    border: none;
+    border-radius: 2px;
+    color: #404040;
+    margin-right: 3%;
+    font-size: 1.3rem;
+    padding-left: 1%;
+}
+
+.btn {
+    font-size: 1.2rem;
+    background: none;
+    border-style: none;
+    background-color: #6ab3b3;
+    text-shadow: 1px 1px #404040;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 1%;
+}
+
+#projectCancelButton {
+    background-color: #c16262;
+}
+
+.projectExistsError {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #b83c33;
+}
+
+.noNameError {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #b83c33;
+}
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px white solid;
+    width: 100%;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    background: #444444;
+    cursor: pointer;
+}
+.project:focus {
+    background-color: #6e6a6a;
+    border: 1px solid white;
+    outline: none;
+}
+
+
+.projectTitle {
+    font-size: 1.5rem;
+}
+
+.projectRemoveBtn {
+    border: none;
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: 1%;
+    background: none;
+    color: #ea5046;
+    text-shadow: 1px 1px #404040;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#pageOverlay {
+    z-index: 1;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+#removeProjectCheckContainer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background: #a59d9d;
+    border-radius: 10px;
+    width: 400px;
+    height: 300px;
+    padding: 30px 20px 10px 20px;
+    text-align: center;
+    white-space: pre-line;
+    font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
+    color: black;
+    font-family: "Raleway", sans-serif;
+    text-shadow: none;
+}
+
+.removeCheckBtn {
+    padding: 5%;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background-color: #c16262;
+    border: white solid 1px;
+    cursor: pointer;
+    width: 50%;
+    align-self: center;
+    margin: 30px 0px 10px 0px;
+}
+
+.cancelCheckBtn {
+    padding: 5%;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background-color: #c16262;
+    border: white solid 1px;
+    cursor: pointer;
+    width: 50%;
+    align-self: center;
+    margin-top: 10px;
+}
+
+#todoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 1px 1px #404040;
+    margin-left: 3%;
+
+}
+
+.todo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+    "todoTitle todoTitle"
+    "todoInfo noteContainer"
+    "todoEditBtn todoCompleteBtn";
+    font-size: 1.5rem;
+    border: solid 1px white;
+    border-radius: 10px;
+    width: 100%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    margin-bottom: 2%;
+    text-align: center;
+    margin-top: 5%;
+}
+.todoInEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    /* border: solid 1px black; */
+    border-radius: 10px;
+    width: 100%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    background: #444444;
+}
+
+.todoTitle {
+    grid-area: todoTitle;
+    font-size: 1.7rem;
+    margin-bottom: 2%;
+    font-weight: 700;
+}
+
+.todoInfo {
+    grid-area: todoInfo;
+}
+.noteContainer {
+    grid-area: noteContainer;
+}
+
+#todoEditBtn {
+    grid-area: todoEditBtn;
+    width: 50%;
+    justify-self: end;
+    margin-right: 5%;
+    border: 0.5px solid white;
+}
+#todoCompleteBtn {
+    grid-area: todoCompleteBtn;
+    width: 50%;
+    margin-left: 5%;
+    border: 0.5px solid white;
+}
+
+.dueDateContainer {
+    margin-bottom: 5%;
+}
+.highPriority {
+    background: #9f3e3e;
+}
+
+.mediumPriority {
+    background: #b6a05d;
+}
+
+.lowPriority {
+    background: #86ad4f;
+}
+
+.todoCreateBtnContainer {
+    text-align: center;
+    padding-bottom: 5%;
+    border-bottom: 3px #a59d9d solid;
+    width: 100%;
+    height: 6vh;
+}
+
+.todoCreateBtn {
+    font-size: 1.5rem;
+    background-color: #a59d9d;
+    color: black;
+    border-radius: 8px;
+    padding: 8px 10px 8px 10px;
+    cursor: pointer;
+    border: 1px white solid;
+}
+
+#createTodoPopup {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+
+.todoTitleInput {
+    background: #dedede;
+    border: none;
+    border-radius: 2px;
+    color: #404040;
+    margin-bottom: 3%;
+    font-size: 1.3rem;
+}
+
+.todoDueDateInput {
+    background: #dedede;
+    border: none;
+    border-radius: 2px;
+    color: #404040;
+    margin-bottom: 3%;
+    font-size: 1.3rem;
+}
+
+.todoPriorityInput {
+    background: #dedede;
+    border: none;
+    border-radius: 2px;
+    color: #404040;
+    margin-bottom: 3%;
+    font-size: 1.3rem;
+}
+
+.todoPrioritySelection {
+    background-color: #6ab3b3;
+}
+.todoNoteInput {
+    background: #dedede;
+    border: none;
+    border-radius: 2px;
+    color: #404040;
+    margin-bottom: 3%;
+    font-size: 1.3rem;
+}
+
+#todoSubmitBtn {
+    display: inline;
+}
+#todoCancelBtn {
+    background-color: #c16262;
+    display: inline;
+}
+#editTodoPopup {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin-top: 1%;
+    text-align: initial;
+}
+
+.todoRemoveBtn {
+    position: absolute;
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    color: #ea5046;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: -0.5%;
+    right: 10%;
+}
+
+.todoNote {
+    white-space: pre;
+}
+
+.todoCompleted {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+    "todoTitle todoTitle"
+    "todoInfo noteContainer"
+    "todoEditBtn todoCompleteBtn";
+    font-size: 1.5rem;
+    border: solid 1px white;
+    border-radius: 10px;
+    width: 100%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    margin-bottom: 2%;
+    text-align: center;
+    margin-top: 5%;
+    background: #444444;
+    text-decoration-line: line-through;
+}
+
+.popupError {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ffa790;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    #projectAndTodoContainer {
+        display: grid;
+        grid-gap: 1%;
+        width: 80%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-left: 2%;
+        padding-right: 2%;
+        justify-items: center;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: none;
+        background: #404040;
+        border-radius: 10px;
+        color: #dedede;
+        font-family: "Raleway", sans-serif;
+    }
+}
