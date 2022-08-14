@@ -1,7 +1,7 @@
 function clearContent() {
-    let content = document.getElementById('content')
+  let content = document.getElementById("content");
 
-    content.innerHTML = '';
+  content.innerHTML = "";
 }
 
-export {clearContent}
+export { clearContent };

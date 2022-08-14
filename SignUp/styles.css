@@ -1,200 +1,200 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
 }
 
 body {
-    background: linear-gradient(120deg, red, white);
+  background: linear-gradient(120deg, red, white);
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    border-bottom: solid black 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  border-bottom: solid black 2px;
 }
 
 .form {
-    display: grid;
-    grid-template-columns: 150px 150px;
-    grid-template-rows: auto;
-    grid-auto-rows: auto;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 20px;
-    justify-content: center;
-    gap: 30px;
-    padding: 60px 50px 40px 45px;
+  display: grid;
+  grid-template-columns: 150px 150px;
+  grid-template-rows: auto;
+  grid-auto-rows: auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 50px 40px 45px;
 }
 
 .input {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-self: start;
-    align-self: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-self: start;
+  align-self: center;
 }
 
-
 label {
-    font-size: 14px;
-    padding-bottom: 5px;
-    margin: 0px;
+  font-size: 14px;
+  padding-bottom: 5px;
+  margin: 0px;
 }
 
 input {
-    border: solid rgb(251, 218, 215) 0.5px;
-    padding: 0px;
-    margin: 0px;
-    font-size: 14px;
+  border: solid rgb(251, 218, 215) 0.5px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
 }
 
 input:valid {
-    border-color: greenyellow;
+  border-color: greenyellow;
 }
 
 input:invalid {
-    border-color: red;
+  border-color: red;
 }
 
-
 .buttons {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    grid-column: 1 / 3;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  grid-column: 1 / 3;
 }
 
 button {
-    padding: 10px;
-    font-size: 15px;
-    border-radius: 10px;
-    background-color: rgb(246, 128, 128);
-    font-weight: 800;
-    color: #fff;
-    border-style: none;
-    cursor: pointer;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  background-color: rgb(246, 128, 128);
+  font-weight: 800;
+  color: #fff;
+  border-style: none;
+  cursor: pointer;
 }
 
-
 .contain {
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: repeat(1, 1fr) repeat(1, 0.5fr) repeat(1, 5fr) repeat(1, 0.5fr);
-    gap: 4px;
-    overflow: auto;
-    justify-content: center;
-    padding: 40px;
-    border-bottom: solid black 2px;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(1, 1fr) repeat(1, 0.5fr) repeat(1, 5fr) repeat(
+      1,
+      0.5fr
+    );
+  gap: 4px;
+  overflow: auto;
+  justify-content: center;
+  padding: 40px;
+  border-bottom: solid black 2px;
 }
 
 .header {
-    border: solid black 1px;
-    background-color: yellow;
-    grid-area: 1 / 1 / 2 / 3;
+  border: solid black 1px;
+  background-color: yellow;
+  grid-area: 1 / 1 / 2 / 3;
 
-    display: grid;
-    grid-template-columns: 2fr 4fr;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
 }
 
 .logo {
-    align-items: center;
-    display: flex;
-    text-align: start;
-    padding-left: 10px;
+  align-items: center;
+  display: flex;
+  text-align: start;
+  padding-left: 10px;
 }
 .header-link {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    overflow: auto;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  overflow: auto;
+  align-items: center;
 }
 
 h4 {
-    text-align: center;
+  text-align: center;
 }
 
 .sidebar {
-    border: solid black 1px;
-    background-color: orange;
-    grid-area: 2 / 1 / 4 / 2;
+  border: solid black 1px;
+  background-color: orange;
+  grid-area: 2 / 1 / 4 / 2;
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    gap: 50px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 50px;
+  padding: 20px;
 }
 
 .box {
-    background-color: #fff;
-    border-radius: 8px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
 .nav {
-    border: solid black 1px;
-    background-color: aqua;
-    grid-area: 2 / 2 / 3 / 3;
+  border: solid black 1px;
+  background-color: aqua;
+  grid-area: 2 / 2 / 3 / 3;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  align-items: center;
 }
 .links {
-    text-align: center;
+  text-align: center;
 }
 .article {
-    border: solid black 1px;
-    background-color: lightblue;
-    grid-area: 3 / 2 / 4 / 3;
+  border: solid black 1px;
+  background-color: lightblue;
+  grid-area: 3 / 2 / 4 / 3;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 10px;
 }
 
 .article-titles {
-    background-color: white;
-    border-radius: 5px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .footer {
-    border: solid black 1px;
-    background-color: darkblue;
-    grid-area: 4 / 1 / 5 / 3;
+  border: solid black 1px;
+  background-color: darkblue;
+  grid-area: 4 / 1 / 5 / 3;
 }
 
 .contain > div {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .containe {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .grid-container {
-    height: 50vh;
-    width: 50vw;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    resize: both;
-    gap: 10px;
-    padding: 5px;
-    border: black solid 1px;
+  height: 50vh;
+  width: 50vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  resize: both;
+  gap: 10px;
+  padding: 5px;
+  border: black solid 1px;
 }
 
 .grid-container > div {
-    border: black solid 1px;
+  border: black solid 1px;
 }

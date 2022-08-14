@@ -1,105 +1,104 @@
 body {
-    text-align: center;
-    background-color: rgb(243, 234, 234);
+  text-align: center;
+  background-color: rgb(243, 234, 234);
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    border-bottom: black solid 3px;
+  display: flex;
+  justify-content: center;
+  border-bottom: black solid 3px;
 }
 .newBook {
-    font-size: 18px;
-    margin: 15px;
-    background-color: lightblue;
-    border-style: none;
-    padding: 10px 15px 10px 15px;
-    border-radius: 7px;
-    cursor: pointer;
+  font-size: 18px;
+  margin: 15px;
+  background-color: lightblue;
+  border-style: none;
+  padding: 10px 15px 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
 }
 
 .container {
-    padding: 20px 10px 15px 10px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
+  padding: 20px 10px 15px 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
 }
 
 .book-card {
-    background-color: lightcoral;
-    border-radius: 8px;
-    border: black solid 1px;
-    text-align: center;
-    padding: 10px;
+  background-color: lightcoral;
+  border-radius: 8px;
+  border: black solid 1px;
+  text-align: center;
+  padding: 10px;
 }
 
 .book-card > h3 {
-    font-size: 20px;
-    margin: 5px;
+  font-size: 20px;
+  margin: 5px;
 }
 
 .book-card > h6 {
-    font-size: 15px;
-    margin: 5px;
+  font-size: 15px;
+  margin: 5px;
 }
 
 .formContainer {
-display: none;
-position: fixed;
-border: 3px solid #999999;
-margin-top: 80px;
+  display: none;
+  position: fixed;
+  border: 3px solid #999999;
+  margin-top: 80px;
 }
 
 .form {
-max-width: 350px;
-padding: 25px;
-background-color: #fff;
+  max-width: 350px;
+  padding: 25px;
+  background-color: #fff;
 }
 
 .form > label {
-    margin: 20px;
+  margin: 20px;
 }
 
 .form > input {
-    margin: 5px 0px 20px 0px;
+  margin: 5px 0px 20px 0px;
 }
 
-.form input[type=text] {
-    width: 100%;
-    padding-left: 5px;
-
+.form input[type="text"] {
+  width: 100%;
+  padding-left: 5px;
 }
 
-.form input[type=checkbox] {
-    width: 100%;
+.form input[type="checkbox"] {
+  width: 100%;
 }
 
 .submit {
-    cursor: pointer;
-    background-color: lightgreen;
-    padding: 8px;
-    border: none;
-    margin: 5px;
-    border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgreen;
+  padding: 8px;
+  border: none;
+  margin: 5px;
+  border-radius: 5px;
 }
 
 .cancel {
-    background-color: red;
-  }
+  background-color: red;
+}
 
 .deleteButton {
-    padding: 2px 4px 2px 4px;
-    margin: 3px;
-    font-size: 11px;
-    border-radius: 5px;
+  padding: 2px 4px 2px 4px;
+  margin: 3px;
+  font-size: 11px;
+  border-radius: 5px;
 }
 
 #labelCheck {
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0px 3px 10px 0px;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0px 3px 10px 0px;
 }
 
 #readCheck {
-    margin: 0px 0px 10px 3px;
+  margin: 0px 0px 10px 3px;
 }
