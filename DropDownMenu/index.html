@@ -12,11 +12,30 @@
     <div class="dropDown" id="dropDown">
         <button class="menuBtn" id="menuBtn" onmouseover="toggleFunction()">Dropdown</button>
         <div class="dropDownContent" id="dropDown-content">
-            <a href="#">Drop 1</a>
-            <a href="#">Drop 2</a>
-            <a href="#">Drop 3</a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
         </div>    
     </div> 
-
+    <div class="content">
+        <div class="slideShowContainer">
+            <div class="slide fade">
+                <img class="image" src="IMG_1754.jpeg">
+            </div>
+            <div class="slide fade">
+                <img class="image" src="IMG_1791.jpeg">
+            </div>
+            <div class="slide fade">
+                <img class="image" src="IMG_1785.jpeg">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
 </body>
 </html>
