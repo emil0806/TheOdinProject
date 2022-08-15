@@ -46,3 +46,17 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
+
+let myTimer;
+
+function startTimer() {
+  myTimer = setInterval(function () {
+    plusSlides(1);
+  }, 5000);
+}
+startTimer();
+
+function stopTimer() {
+  clearInterval(myTimer);
+  startTimer();
+}
