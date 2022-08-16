@@ -131,3 +131,30 @@ function openForm() {
 function closeForm() {
   document.getElementById("formContainer").style.display = "none";
 }
+
+/* Adding form validation */
+titleInput.addEventListener("input", () => {
+  titleInput.setCustomValidity("");
+  titleInput.checkValidity();
+});
+
+titleInput.addEventListener("invalid", () => {
+  if (titleInput.value === "") {
+    titleInput.setCustomValidity("Enter a title!");
+  } else {
+    titleInput.setCustomValidity("Title does not exist!");
+  }
+});
+
+pagesInput.addEventListener("input", () => {
+  pagesInput.setCustomValidity("");
+  pagesInput.checkValidity();
+});
+
+pagesInput.addEventListener("invalid", () => {
+  if (pagesInput.value === "") {
+    pagesInput.setCustomValidity("Enter number of pages!");
+  } else {
+    pagesInput.setCustomValidity("Only use numbers!");
+  }
+});
