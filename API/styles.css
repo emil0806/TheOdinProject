@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image {
+    margin: 50px;
+}
+
+#changeGif {
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: lightcoral;
+    cursor: pointer;
+    border: 1px solid black;
+    font-weight: 800;
+}
+
+#searchText {
+    font-size: 16px;
+    padding: 5px 0px 5px 3px;
+}
+
+#search {
+    padding: 8px 10px 8px 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: lightblue;
+    cursor: pointer;
+    border: 1px solid black;
+    font-weight: 800;
+}
+
+#errorText {
+    color: red;
+}
