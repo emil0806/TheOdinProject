@@ -27,6 +27,15 @@ submitButton.addEventListener("click", () => {
   cityInput.value = "";
 });
 
+document
+  .getElementById("cityInput")
+  .addEventListener("keyup", function (event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      document.getElementById("submitButton").click();
+    }
+  });
+
 async function getWeatherData() {
   const cityUrl = createCityUrl(cityName);
   const coords = await getCoord(cityUrl);
