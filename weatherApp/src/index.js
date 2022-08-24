@@ -37,14 +37,22 @@ document
   });
 
 async function getWeatherData() {
-  const cityUrl = createCityUrl(cityName);
-  const coords = await getCoord(cityUrl);
+  try {
+    const cityUrl = createCityUrl(cityName);
+    const coords = await getCoord(cityUrl);
 
-  const weatherUrl = currentWeatherUrl(coords);
-  const currentWeather = await getWeather(weatherUrl);
-  renderWeather(currentWeather);
+    const weatherUrl = currentWeatherUrl(coords);
+    const currentWeather = await getWeather(weatherUrl);
+    renderWeather(currentWeather);
 
-  const forecastUrl = createForecastUrl(coords);
-  const weatherData = await getForecast(forecastUrl);
-  renderForecast(weatherData);
+    const forecastUrl = createForecastUrl(coords);
+    const weatherData = await getForecast(forecastUrl);
+    renderForecast(weatherData);
+  } catch (error) {
+    const inputDiv = document.querySelector("#cityInput");
+    inputDiv.setAttribute("id", "error");
+    setTimeout(() => {
+      inputDiv.id = "cityInput";
+    }, 300);
+  }
 }
