@@ -61,4 +61,86 @@ class LinkedList {
     }
     return temp.value;
   }
+
+  pop() {
+    let temp = this.HEAD;
+
+    while (temp.next.next != null) {
+      temp = temp.next;
+    }
+    temp.next = null;
+  }
+
+  contains(value) {
+    let temp = this.HEAD;
+
+    while (temp != null && temp.value !== value) {
+      temp = temp.next;
+    }
+    return temp == null ? false : true;
+  }
+
+  find(value) {
+    let temp = this.HEAD;
+    let index = 0;
+
+    while (temp != null) {
+      if (temp.value == value) return index;
+      index++;
+      temp = temp.next;
+    }
+    return null;
+  }
+
+  toString() {
+    let temp = this.HEAD;
+    let string = "";
+
+    while (temp != null) {
+      string += `(${temp.value}) -> `;
+      temp = temp.next;
+    }
+    string += "(null)";
+
+    return string;
+  }
+
+  insertAt(value, index) {
+    let temp = this.HEAD;
+    let tempNext;
+    let count = 1;
+    let newNode = new Node(value);
+
+    if (index == 0) {
+      newNode.next = temp;
+      this.HEAD = newNode;
+      return;
+    }
+
+    while (temp != null) {
+      if (count == index) {
+        tempNext = temp.next;
+        temp.next = newNode;
+        newNode.next = tempNext;
+        return;
+      }
+
+      count++;
+      temp = temp.next;
+    }
+  }
+
+  removeAt(index) {
+    if (index === 0) {
+      const valueOfRemoved = this.HEAD.value;
+      this.HEAD = this.HEAD.next;
+      return valueOfRemoved;
+    }
+
+    const nodeBeforeRemovedOne = this.at(index - 1);
+    const valueOfRemoved = nodeBeforeRemovedOne.next.value;
+    nodeBeforeRemovedOne.next = nodeBeforeRemovedOne.next.next;
+
+    return valueOfRemoved;
+  }
 }
