@@ -1,3 +1,4 @@
+// Class to create node
 class Node {
   constructor(data) {
     this.data = data;
@@ -5,20 +6,24 @@ class Node {
     this.right = null;
   }
 }
-
+// Class to create tree, which takes an array
 class Tree {
   constructor(array) {
+    // Removes dublicates from array, and sort the array using mergesort
     this.array = [...removeDublicates(mergeSort(array))];
+    // Biuld a new tree from the sorted array
     this.root = this.buildTree(this.array, 0, this.array.length - 1);
+    // Arrays to store values for preorder, inorder, postorder
     this.preorderArray = [];
     this.inorderArray = [];
     this.postorderArray = [];
   }
-
+  // Function which builds a tree by taking in array, start point and end point of array
   buildTree(array, start, end) {
     if (start > end) {
       return null;
     }
+    // Finding middle of array to determine root
     let mid = parseInt((start + end) / 2);
     let node = new Node(array[mid]);
 
@@ -27,7 +32,7 @@ class Tree {
 
     return node;
   }
-
+  // Function which inserts a new node in tree
   insert(value, root = this.root) {
     if (root == null) {
       return (root = new Node(value));
@@ -39,7 +44,7 @@ class Tree {
     }
     return root;
   }
-
+  // Function which deletes node from tree
   delete(value, root = this.root) {
     if (root == null) {
       return root;
