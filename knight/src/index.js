@@ -68,7 +68,7 @@ const knightMoves = (start, end) => {
   const move = gameBoard(start, end);
 
   let currentNode = move[0];
-  let count = 0;
+  let count = -1;
   let path = "";
 
   while (currentNode !== null) {
@@ -77,9 +77,12 @@ const knightMoves = (start, end) => {
     count++;
   }
 
-  console.log(`You made it in ${count - 1} moves!`);
+  console.log(`You made it in ${count} moves!`);
   console.log("Here's your path:");
   console.log(path);
+  return count;
 };
 
 knightMoves([2, 0], [7, 6]);
+
+module.exports = knightMoves;
