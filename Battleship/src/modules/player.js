@@ -7,31 +7,34 @@ const validName = (name, isPc) => {
 };
 
 const playerAttack = ({ player, x, y }) => {
-  return player.receiveAttack({ x, y });
+  return player.receiveAttack({ player, x, y });
 };
 
 const allPcAttacks = [];
 
-const calcPcAttack = () => {
-  let x = Math.floor(Math.random() * 10);
-  let y = Math.floor(Math.random() * 10);
-  let coords = checkValidAttack(x, y);
-  return coords;
-};
-
-const checkValidAttack = (x, y) => {
-  for (let i = 0; i < allPcAttacks.length; i++) {
-    if (x === allPcAttacks[i].x && y === allPcAttacks[i].y) {
-      calcPcAttack();
-    }
-  }
-  return { x, y };
-};
-
 const pcAttack = ({ player }) => {
-  const coords = calcPcAttack();
+  let x;
+  let y;
+  let numberOfAttacks = 0;
 
-  return player.receiveAttack(coords);
+  const calcPcAttack = () => {
+    x = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    y = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    checkValidAttack(x, y);
+  };
+  const checkValidAttack = (x, y) => {
+    for (let i = 0; i < allPcAttacks.length; i++) {
+      if (x === allPcAttacks[i].x && y === allPcAttacks[i].y) {
+        calcPcAttack();
+      }
+    }
+  };
+  calcPcAttack();
+
+  const coords = { x, y };
+  allPcAttacks.push(coords);
+  console.log(allPcAttacks);
+  return player.receiveAttack({ x, y });
 };
 
 const newPlayer = ({ name = "", board, isPc = false }) => {
@@ -45,4 +48,4 @@ const newPlayer = ({ name = "", board, isPc = false }) => {
   return { getName, receiveAttack, attack };
 };
 
-export { newPlayer, calcPcAttack };
+export { newPlayer };
