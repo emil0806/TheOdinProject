@@ -38,8 +38,20 @@ function updatePlayerBoardAfterAttack(gameboard) {
   }
 }
 
+function makeBoardReady() {
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      let cell = document.getElementById("board1").rows[i].cells[j];
+      cell.className = "cell";
+      let pcCell = document.getElementById("board2").rows[i].cells[j];
+      pcCell.className = "cell";
+    }
+  }
+}
+
 export {
   updateBoardWithShips,
   updatePcBoardAfterAttack,
   updatePlayerBoardAfterAttack,
+  makeBoardReady,
 };

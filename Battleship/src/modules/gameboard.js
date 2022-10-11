@@ -9,9 +9,8 @@ const createGameboard = () => {
     }
     board.push(row);
   }
-
-  const allShips = [];
-  const allShipsData = [];
+  let allShips = [];
+  let allShipsData = [];
 
   const placeShip = (ship, { x, y }, isVertical = false) => {
     const newShip = createShip(ship);
@@ -29,6 +28,16 @@ const createGameboard = () => {
     allShipsData.push(shipData);
     allShips.push(newShip);
     return newShip;
+  };
+
+  const resetBoard = () => {
+    for (let i = 0; i < board.length; i++) {
+      for (let j = 0; j < board[i].length; j++) {
+        board[i][j] = "~";
+      }
+    }
+    allShips.splice(0, allShips.length);
+    allShipsData.splice(0, allShipsData.length);
   };
 
   const receiveAttack = ({ x, y }) => {
@@ -58,11 +67,27 @@ const createGameboard = () => {
     }
     return checkIfSunk;
   };
+
+  const isBoardReady = () => {
+    if (allShips.length == 5) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   const displayBoard = () => {
     return board;
   };
 
-  return { displayBoard, placeShip, receiveAttack, isAllShipsSunk };
+  return {
+    displayBoard,
+    placeShip,
+    resetBoard,
+    receiveAttack,
+    isAllShipsSunk,
+    isBoardReady,
+    allShips,
+  };
 };
 
 export default createGameboard;

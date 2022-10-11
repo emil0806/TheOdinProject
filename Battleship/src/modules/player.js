@@ -15,7 +15,6 @@ const allPcAttacks = [];
 const pcAttack = ({ player }) => {
   let x;
   let y;
-  let numberOfAttacks = 0;
 
   const calcPcAttack = () => {
     x = Math.floor(Math.random() * (10 - 1 + 1) + 1);

@@ -1,3 +1,5 @@
+import { updateBoardWithShips } from "./updateBoards";
+
 function renderPage() {
   let container = document.createElement("div");
   container.setAttribute("id", "container");
@@ -7,6 +9,10 @@ function renderPage() {
   gameContainer.setAttribute("id", "gameContainer");
   gameContainer.setAttribute("class", "gameContainer");
 
+  let gameBtn = document.createElement("button");
+  gameBtn.setAttribute("id", "gameBtn");
+  gameBtn.textContent = "New Game";
+
   let boardContainer1 = document.createElement("div");
   boardContainer1.setAttribute("class", "boardContainer");
 
@@ -14,7 +20,6 @@ function renderPage() {
   boardContainer2.setAttribute("class", "boardContainer");
 
   let board = document.createElement("table");
-  board.setAttribute("class", "board");
 
   for (let i = 0; i < 10; i++) {
     let row = board.insertRow(i);
@@ -22,6 +27,7 @@ function renderPage() {
       let cell = row.insertCell(j);
       cell.innerHTML = "";
       cell.setAttribute("class", "cell");
+      cell.setAttribute("id", "cell");
     }
   }
 
@@ -29,6 +35,7 @@ function renderPage() {
   boardContainer2.appendChild(board.cloneNode(true)).id = "board2";
 
   gameContainer.appendChild(boardContainer1).id = "boardContainer1";
+  gameContainer.appendChild(gameBtn);
   gameContainer.appendChild(boardContainer2).id = "boardContainer2";
 
   let header = document.createElement("div");
@@ -57,4 +64,112 @@ function renderPage() {
   document.body.appendChild(container);
 }
 
-export { renderPage };
+function boardNotReady(isVertical, playerGameboard) {
+  const playerBoard = document.getElementById("board1");
+  const pcBoard = document.getElementById("board2");
+
+  let numberOfShips = playerGameboard.allShips.length;
+  const shipToPlace = [5, 4, 3, 3, 2];
+
+  playerBoard.className = "playerBoardNotReady";
+  pcBoard.className = "pcBoardNotReady";
+
+  document.querySelectorAll("#board1 td").forEach((e) => {
+    e.addEventListener("mouseover", function (e) {
+      let x = e.target.parentElement.rowIndex;
+      let y = e.target.cellIndex;
+
+      if (
+        (!isVertical && y + shipToPlace[numberOfShips] < 11) ||
+        (isVertical && x + shipToPlace[numberOfShips] < 11)
+      ) {
+        for (let i = 0; i < shipToPlace[numberOfShips]; i++) {
+          let shipCell = document.getElementById("board1").rows[x].cells[y];
+          shipCell.classList.add("shipPlacement");
+          if (!isVertical) {
+            y += 1;
+          } else {
+            x += 1;
+          }
+        }
+      } else {
+        if (!isVertical) {
+          do {
+            let shipCell = document.getElementById("board1").rows[x].cells[y];
+            shipCell.classList.add("invalidShip");
+            y += 1;
+          } while (y < 10);
+        } else {
+          do {
+            let shipCell = document.getElementById("board1").rows[x].cells[y];
+            shipCell.classList.add("invalidShip");
+            x += 1;
+          } while (x < 10);
+        }
+      }
+    });
+    e.addEventListener("mouseleave", function (e) {
+      let x = e.target.parentElement.rowIndex;
+      let y = e.target.cellIndex;
+
+      if (
+        (!isVertical && y + shipToPlace[numberOfShips] < 11) ||
+        (isVertical && x + shipToPlace[numberOfShips] < 11)
+      ) {
+        for (let i = 0; i < shipToPlace[numberOfShips]; i++) {
+          let shipCell = document.getElementById("board1").rows[x].cells[y];
+          shipCell.classList.remove("shipPlacement");
+          if (!isVertical) {
+            y += 1;
+          } else {
+            x += 1;
+          }
+        }
+      } else {
+        if (!isVertical) {
+          do {
+            let shipCell = document.getElementById("board1").rows[x].cells[y];
+            shipCell.classList.remove("invalidShip");
+            y += 1;
+          } while (y < 10);
+        } else {
+          do {
+            let shipCell = document.getElementById("board1").rows[x].cells[y];
+            shipCell.classList.remove("invalidShip");
+            x += 1;
+          } while (x < 10);
+        }
+      }
+    });
+    e.addEventListener("click", function (e) {
+      let x = e.target.parentElement.rowIndex + 1;
+      let y = e.target.cellIndex + 1;
+
+      playerGameboard.placeShip(
+        shipToPlace[numberOfShips],
+        { x: x, y: y },
+        isVertical
+      );
+      updateBoardWithShips(playerGameboard);
+      numberOfShips += 1;
+
+      if (playerGameboard.isBoardReady()) {
+        boardReady();
+        return;
+      }
+    });
+  });
+}
+
+function boardReady() {
+  let playerBoard = document.getElementById("board1");
+  const pcBoard = document.getElementById("board2");
+
+  playerBoard.className = "playerBoardReady";
+  pcBoard.className = "pcBoardReady";
+
+  let newElement = playerBoard.cloneNode(true);
+  playerBoard.parentNode.replaceChild(newElement, playerBoard);
+}
+
+export { renderPage, boardNotReady, boardReady };
