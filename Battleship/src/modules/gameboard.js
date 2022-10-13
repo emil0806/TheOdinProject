@@ -87,6 +87,7 @@ const createGameboard = () => {
     isAllShipsSunk,
     isBoardReady,
     allShips,
+    allShipsData,
   };
 };
 

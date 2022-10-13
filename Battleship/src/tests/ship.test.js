@@ -30,7 +30,18 @@ describe("createShip", () => {
     expect(ship.isSunk()).toBe(false);
     ship.hit(3);
     expect(ship.isSunk()).toBe(false);
-    ship.hit(4);
+    expect(ship.hit(4)).toStrictEqual(["X", "X", "X", "X"]);
     expect(ship.isSunk()).toBe(true);
+  });
+
+  it("is ship sunk", () => {
+    const ship = createShip(4);
+    expect(ship.isSunk()).toBe(false);
+    ship.hit(1);
+    expect(ship.isSunk()).toBe(false);
+    ship.hit(3);
+    expect(ship.isSunk()).toBe(false);
+    ship.hit(4);
+    expect(ship.isSunk()).toBe(false);
   });
 });

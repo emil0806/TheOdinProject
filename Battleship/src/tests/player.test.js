@@ -39,9 +39,4 @@ describe("player", () => {
     expect(player1.attack({ player: player2, x: 2, y: 3 })).toBe(true);
     expect(player1.attack({ player: player2, x: 9, y: 9 })).toBe(false);
   });
-
-  it("test if pc attack is random", () => {
-    const firstAttack = calcPcAttack();
-    expect(calcPcAttack).not.toBe(firstAttack);
-  });
 });

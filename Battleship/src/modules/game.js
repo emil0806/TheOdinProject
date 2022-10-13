@@ -1,12 +1,11 @@
 import createGameboard from "./gameboard";
 import { newPlayer } from "./player";
-import { updateBoardWithShips } from "./updateBoards";
 import {
   updatePcBoardAfterAttack,
   updatePlayerBoardAfterAttack,
   makeBoardReady,
 } from "./updateBoards";
-import { renderPage, boardNotReady, boardReady } from "./renderPage";
+import { boardNotReady, boardReady } from "./renderPage";
 
 function newGame() {
   const playerGameboard = createGameboard();
@@ -20,6 +19,8 @@ function newGame() {
   const pcPlayer = newPlayer({ board: pcGameboard, isPc: true });
   let isVertical = false;
 
+  const infoText = document.getElementById("infoText");
+
   startOfGame(playerGameboard, pcGameboard, isVertical);
 
   document.querySelectorAll("#board2 td").forEach((e) =>
@@ -31,9 +32,16 @@ function newGame() {
       }
       player.attack({ player: pcPlayer, x: x, y: y });
       updatePcBoardAfterAttack(pcGameboard, { x: x, y: y });
+      gameOver(playerGameboard, pcGameboard);
+      infoText.textContent = "PC makes move!";
 
       pcPlayer.attack({ player: player });
-      updatePlayerBoardAfterAttack(playerGameboard);
+
+      setTimeout(function () {
+        updatePlayerBoardAfterAttack(playerGameboard);
+        gameOver(playerGameboard, pcGameboard);
+        infoText.textContent = "Your turn!";
+      }, 750);
     })
   );
 
@@ -44,6 +52,7 @@ function newGame() {
 
     makeBoardReady();
     startOfGame(playerGameboard, pcGameboard, isVertical);
+    infoText.textContent = "Place your ships";
   });
 }
 
@@ -64,4 +73,14 @@ function placePcShips(pcGameboard) {
   pcGameboard.placeShip(3, { x: 1, y: 10 }, true);
 }
 
+function gameOver(playerGameboard, pcGameboard) {
+  const infoText = document.getElementById("infoText");
+  if (playerGameboard.isAllShipsSunk()) {
+    infoText.textContent = "Game Over. You lost!";
+  } else if (pcGameboard.isAllShipsSunk()) {
+    infoText.textContent = "You Won!";
+  } else {
+    return;
+  }
+}
 export { newGame };

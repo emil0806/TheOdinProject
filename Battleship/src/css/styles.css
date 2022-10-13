@@ -40,9 +40,31 @@
     justify-content: center;
     flex-direction: row;
     height: 70vh;
-    gap: 7%;
+    gap: 3%;
     padding: 3%;
     width: 100%;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15vw;
+}
+
+.infoBox {
+    width: 100%;
+    margin-top: 10vh;
+    padding: 5px;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoText {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 #gameBtn {
@@ -51,12 +73,33 @@
     padding: 1rem 1.2rem 1rem 1.2rem;
     font-size: 1rem;
     cursor: pointer;
-    margin-top: 10vh;
+    margin-top: 5vh;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    border-radius: 4px;
 }
 
 #gameBtn:hover {
-    background-color: whitesmoke;
+    background-color: lightgray;
 }
+
+#flipBtn {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 3vh;
+    border: none;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#flipBtn:hover {
+    background-color: lightgray;
+}
+
 
 .boardContainer {
     display: flex;
@@ -133,6 +176,8 @@
     width: 50px;
     height: 50px;
     border: 1px black solid;
+    pointer-events: none;
+    cursor: auto;
 }
 
 .missed {

@@ -1,5 +1,3 @@
-import createGameboard from "./gameboard";
-
 const validName = (name, isPc) => {
   if (!name && !isPc) return "Player";
   if (!name && isPc) return "PC-Player";
@@ -13,26 +11,24 @@ const playerAttack = ({ player, x, y }) => {
 const allPcAttacks = [];
 
 const pcAttack = ({ player }) => {
-  let x;
-  let y;
-
-  const calcPcAttack = () => {
-    x = Math.floor(Math.random() * (10 - 1 + 1) + 1);
-    y = Math.floor(Math.random() * (10 - 1 + 1) + 1);
-    checkValidAttack(x, y);
-  };
+  let x = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  let y = Math.floor(Math.random() * (10 - 1 + 1) + 1);
   const checkValidAttack = (x, y) => {
     for (let i = 0; i < allPcAttacks.length; i++) {
       if (x === allPcAttacks[i].x && y === allPcAttacks[i].y) {
-        calcPcAttack();
+        return false;
       }
     }
+    return true;
   };
-  calcPcAttack();
+
+  do {
+    x = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    y = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  } while (checkValidAttack(x, y) == false);
 
   const coords = { x, y };
   allPcAttacks.push(coords);
-  console.log(allPcAttacks);
   return player.receiveAttack({ x, y });
 };
 

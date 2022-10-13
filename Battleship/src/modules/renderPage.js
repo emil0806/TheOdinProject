@@ -9,9 +9,32 @@ function renderPage() {
   gameContainer.setAttribute("id", "gameContainer");
   gameContainer.setAttribute("class", "gameContainer");
 
+  let infoContainer = document.createElement("div");
+  infoContainer.setAttribute("id", "infoContainer");
+  infoContainer.setAttribute("class", "infoContainer");
+
   let gameBtn = document.createElement("button");
   gameBtn.setAttribute("id", "gameBtn");
   gameBtn.textContent = "New Game";
+
+  let flipBtn = document.createElement("button");
+  flipBtn.setAttribute("id", "flipBtn");
+  flipBtn.textContent = "Flip ship";
+
+  let infoBox = document.createElement("div");
+  infoBox.setAttribute("id", "infoBox");
+  infoBox.setAttribute("class", "infoBox");
+
+  let infoText = document.createElement("h3");
+  infoText.setAttribute("id", "infoText");
+  infoText.setAttribute("class", "infoText");
+  infoText.textContent = "Place your ships";
+
+  infoBox.appendChild(infoText);
+
+  infoContainer.appendChild(gameBtn);
+  infoContainer.appendChild(flipBtn);
+  infoContainer.appendChild(infoBox);
 
   let boardContainer1 = document.createElement("div");
   boardContainer1.setAttribute("class", "boardContainer");
@@ -35,7 +58,7 @@ function renderPage() {
   boardContainer2.appendChild(board.cloneNode(true)).id = "board2";
 
   gameContainer.appendChild(boardContainer1).id = "boardContainer1";
-  gameContainer.appendChild(gameBtn);
+  gameContainer.appendChild(infoContainer);
   gameContainer.appendChild(boardContainer2).id = "boardContainer2";
 
   let header = document.createElement("div");
@@ -67,6 +90,14 @@ function renderPage() {
 function boardNotReady(isVertical, playerGameboard) {
   const playerBoard = document.getElementById("board1");
   const pcBoard = document.getElementById("board2");
+  const flipBtn = document.getElementById("flipBtn");
+  flipBtn.addEventListener("click", () => {
+    if (isVertical) {
+      isVertical = false;
+    } else {
+      isVertical = true;
+    }
+  });
 
   let numberOfShips = playerGameboard.allShips.length;
   const shipToPlace = [5, 4, 3, 3, 2];
@@ -162,6 +193,9 @@ function boardNotReady(isVertical, playerGameboard) {
 }
 
 function boardReady() {
+  const infoText = document.getElementById("infoText");
+  infoText.textContent = "Your turn!";
+
   let playerBoard = document.getElementById("board1");
   const pcBoard = document.getElementById("board2");
 

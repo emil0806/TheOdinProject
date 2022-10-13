@@ -8,7 +8,7 @@ const adjustLength = (length) => {
 };
 
 const isInRange = (position) => {
-  if (minLength <= position && maxLength >= position) {
+  if (0 < position && maxLength >= position) {
     return true;
   } else {
     return false;
@@ -33,15 +33,12 @@ const createShip = (length) => {
     return lives;
   };
   const isSunk = () => {
-    let shipSunk = false;
     for (let i = 0; i < shipLength; i++) {
       if (lives[i] === "O") {
-        shipSunk = false;
-      } else {
-        shipSunk = true;
+        return false;
       }
     }
-    return shipSunk;
+    return true;
   };
   return { getLength, hit, isSunk };
 };
