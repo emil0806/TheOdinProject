@@ -76,7 +76,7 @@ function renderPage() {
   footer.setAttribute("class", "footer");
 
   let footerText = document.createElement("h4");
-  footerText.textContent = "Rules of battleship";
+  footerText.textContent = "Ready - set - fire!";
 
   footer.appendChild(footerText);
 

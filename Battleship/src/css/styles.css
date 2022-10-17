@@ -35,6 +35,10 @@
     align-items: center;
 }
 
+#footer > h4 {
+    font-size: 1.4rem;
+}
+
 .gameContainer {
     display: flex;
     justify-content: center;

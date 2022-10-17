@@ -32,16 +32,20 @@ function newGame() {
       }
       player.attack({ player: pcPlayer, x: x, y: y });
       updatePcBoardAfterAttack(pcGameboard, { x: x, y: y });
-      gameOver(playerGameboard, pcGameboard);
+      if (gameOver(playerGameboard, pcGameboard)) {
+        return;
+      }
       infoText.textContent = "PC makes move!";
 
       pcPlayer.attack({ player: player });
 
       setTimeout(function () {
         updatePlayerBoardAfterAttack(playerGameboard);
-        gameOver(playerGameboard, pcGameboard);
+        if (gameOver(playerGameboard, pcGameboard)) {
+          return;
+        }
         infoText.textContent = "Your turn!";
-      }, 750);
+      }, 600);
     })
   );
 
@@ -62,23 +66,71 @@ function startOfGame(playerGameboard, pcGameboard, isVertical) {
   } else {
     boardReady();
   }
-  placePcShips(pcGameboard);
+  const shipsToPlace = [5, 4, 3, 3, 2];
+  for (let i = 0; i < 5; i++) {
+    placePcShips(pcGameboard, shipsToPlace[i]);
+  }
 }
 
-function placePcShips(pcGameboard) {
-  pcGameboard.placeShip(4, { x: 2, y: 3 });
-  pcGameboard.placeShip(2, { x: 6, y: 7 });
-  pcGameboard.placeShip(5, { x: 4, y: 2 }, true);
-  pcGameboard.placeShip(3, { x: 5, y: 4 }, true);
-  pcGameboard.placeShip(3, { x: 1, y: 10 }, true);
+let shipLocations = [];
+
+function placePcShips(pcGameboard, shipLength) {
+  let x = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  let y = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  let vert = Math.random() < 0.5;
+
+  const checkValidCoords = (x, y) => {
+    if ((vert && x + shipLength < 10) || (!vert && y + shipLength < 10)) {
+      for (let h = 0; h < shipLength; h++) {
+        for (let i = 0; i < shipLocations.length; i++) {
+          if (x === shipLocations[i].x && y === shipLocations[i].y) {
+            return false;
+          }
+        }
+        if (vert) {
+          x += 1;
+        } else {
+          y += 1;
+        }
+      }
+    } else {
+      return false;
+    }
+
+    return true;
+  };
+  do {
+    x = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    y = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  } while (checkValidCoords(x, y) == false);
+
+  pcGameboard.placeShip(shipLength, { x: x, y: y }, vert);
+
+  for (let i = 0; i < shipLength; i++) {
+    shipLocations.push({ x, y });
+    if (vert) {
+      x += 1;
+    } else {
+      y += 1;
+    }
+  }
 }
 
 function gameOver(playerGameboard, pcGameboard) {
   const infoText = document.getElementById("infoText");
+  const playerBoard = document.getElementById("board1");
+  const pcBoard = document.getElementById("board2");
+
   if (playerGameboard.isAllShipsSunk()) {
     infoText.textContent = "Game Over. You lost!";
+    playerBoard.className = "pcBoardNotReady";
+    pcBoard.className = "pcBoardNotReady";
+    return true;
   } else if (pcGameboard.isAllShipsSunk()) {
     infoText.textContent = "You Won!";
+    playerBoard.className = "pcBoardNotReady";
+    pcBoard.className = "pcBoardNotReady";
+    return true;
   } else {
     return;
   }
