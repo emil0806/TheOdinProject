@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display+SC:700i&display=swap");
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.container {
+    display: flex;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    font-family: "Chivo";
+}
+
+.creator {
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    margin-right: 5vw;
+}
+
+.header {
+    margin: 2vh;
+    font-size: 2.6rem;
+}
+
+.subHeader {
+    font-size: 1.4rem;
+    margin-bottom: 1.5vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label {
+    width: 25%;
+}
+input {
+    margin-bottom: 1.5vh;
+    width: 50%;
+}
+
+button {
+    margin: 1vh 0.5vw 3vh 0.5vw;
+    padding: 4px;
+}
+
+.inputDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonDiv {
+    display: flex;
+}
+
+/* Styling of CV */
+
+.cv {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas: 
+    "infoDiv infoDiv"
+    "expDiv eduDiv";
+    background-color: lightgoldenrodyellow;
+    border: 1px solid black;
+}
+
+.infoDiv {
+    background-color: lightgoldenrodyellow;
+    grid-area: infoDiv;
+    display: flex;
+    border-bottom: 2px solid blue;
+}
+
+.names {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3vw;
+    font-weight: 700;
+}
+
+.firstName {
+    font-size: 2rem;
+}
+
+.lastName {
+    font-size: 2.5rem;
+}
+
+.contact {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 3vh;
+}
+
+.email {
+    margin-right: 2vw;
+    font-size: 1.2rem;
+    margin-bottom: 1vh;
+    font-weight: 700;
+}
+
+.phone {
+    font-size: 1.2rem;
+    margin-right: 2vw;
+    font-weight: 700;
+}
+
+.eduDiv {
+    background-color: lightgoldenrodyellow;
+    grid-area: eduDiv;
+    margin: 2% 2% 10% 2%;;
+    padding: 2% 1% 2% 1%;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.eduBox {
+    background-color: white;
+    border: 1px solid blue;
+    grid-area: eduDiv;
+    margin: 0% 2% 5% 0%;;
+    padding: 5% 5% 5% 5%;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.studyHeader {
+    font-weight: 700;
+}
+
+.expDiv {
+    grid-area: expDiv;
+    margin: 2% 2% 2% 2%;
+    padding: 5% 5% 5% 10%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleHeader {
+    font-weight: 700;
+}
+
+.tasks {
+    margin: 2% 0% 2% 0%;
+}
+
