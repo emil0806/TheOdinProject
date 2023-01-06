@@ -12,7 +12,11 @@ export default function Game() {
   };
 
   const handleHighScore = () => {
-    setHighScore(score);
+    if (score > highScore) {
+      setHighScore(score);
+    } else {
+      return;
+    }
   };
 
   const updateText = (string) => {
